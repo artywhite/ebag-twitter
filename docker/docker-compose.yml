@@ -1,0 +1,23 @@
+version: '3.5' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  ebag-twitter-app: #name of the second service
+    build:
+      context: ../
+      dockerfile: ./docker/EbagTwitterApp
+    links:
+      - ebag-twitter-db # link this service to the database service
+    networks:
+      - ebag-twitter
+    volumes:
+      - "..:/usr/src/app/"
+
+  ebag-twitter-db: # name of the third service
+    image: mongo # specify image to build container from
+    networks:
+      - ebag-twitter
+
+networks:
+  ebag-twitter:
+    name: ebag-twitter
