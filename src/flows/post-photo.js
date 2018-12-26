@@ -10,6 +10,9 @@ const retrySeconds = 10;
 async function postPhotoFlow() {
   try {
     const photoModel = await PhotoModel.getNextPost();
+    if (!photoModel) {
+      throw new Error('No new PhotoModel was found');
+    }
 
     await CheckPhotoModel(photoModel);
 
