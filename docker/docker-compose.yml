@@ -10,8 +10,6 @@ services:
       - ebag-twitter-db # link this service to the database service
     networks:
       - ebag-twitter
-    volumes:
-      - "..:/usr/src/app/"
 
   ebag-twitter-db: # name of the third service
     image: mongo # specify image to build container from

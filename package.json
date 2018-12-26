@@ -13,6 +13,7 @@
     "eslint": "^5.11.0"
   },
   "scripts": {
-    "startDev": "NODE_PATH=. nodemon --watch src/ src/index"
+    "startDev": "NODE_ENV=development NODE_PATH=. nodemon --watch src/ src/index",
+    "start": "NODE_PATH=. node src/index"
   }
 }

@@ -16,6 +16,7 @@ const init = async () => {
     consoleLogWithDate(
       `Starting background process: postPhotoFlow with ${postIntervalInSeconds} interval (in seconds)`
     );
+
     callFuncEveryGivenSec(postIntervalInSeconds, postPhotoFlow);
   } catch (err) {
     consoleErrorWithDate(err);
