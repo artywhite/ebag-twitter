@@ -3,7 +3,6 @@ const { PhotoModel } = require('src/db/models');
 const { tweetPhoto } = require('src/lib/twitter');
 const CheckPhotoModel = require('src/lib/PhotoModelChecker');
 const { downloadImage, removeImage } = require('src/helpers/fs-methods');
-const { getRandomTagsString } = require('src/lib/TagsGenerator');
 
 const retrySeconds = 10;
 
@@ -18,10 +17,7 @@ async function postPhotoFlow() {
 
     const { file_path } = await downloadImage(photoModel);
 
-    await tweetPhoto({
-      imgPath: file_path,
-      statusText: getRandomTagsString(),
-    });
+    await tweetPhoto({ imgPath: file_path });
 
     await PhotoModel.markPostAsUploaded(photoModel);
     removeImage(file_path);
