@@ -5,7 +5,7 @@
     "date-fns": "^1.30.1",
     "dotenv": "^6.2.0",
     "lodash": "^4.17.13",
-    "mongoose": "^5.4.0",
+    "mongoose": "^5.7.5",
     "request": "^2.88.0",
     "twit": "^2.2.11"
   },
